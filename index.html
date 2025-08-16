@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz</title>
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 24px;
+    }
+    .info {
+      background: linear-gradient(90deg, #e0f7fa 0%, #f0f0f0 100%);
+      border-left: 6px solid #27ae60;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(39,174,96,0.07);
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .info strong {
+      font-size: 1.08em;
+      color: #219150;
+      display: flex;
+      align-items: center;
+    }
+    .info strong:before {
+      content: '\1F9FA'; /* ícone livro */ 
+      font-size: 1.2em;
+      margin-right: 7px;
+    }
+    .info ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .info ul li {
+      margin-bottom: 3px;
+      font-size: 1em;
+    }
+    .choices {
+      background: #f9f9f9;
+      border: 1px solid #e1e1e1;
+      border-radius: 6px;
+      padding: 14px 18px 10px 18px;
+      margin-bottom: 26px;
+      box-shadow: 0 1px 3px rgba(44,62,80,0.04);
+    }
+    .choices label {
+      font-weight: 500;
+      margin-left: 6px;
+      color: #222;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .choices input[type="radio"] {
+      accent-color: #27ae60;
+      margin-right: 6px;
+      transform: scale(1.15);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 16px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    button[type="submit"] {
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 24px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 18px;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #219150;
+    }
+    @media (max-width: 600px) {
+      .container {
+        max-width: 98vw;
+        margin: 8px auto;
+        padding: 6vw 2vw 4vw 2vw;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      .info {
+        padding: 8px 4px;
+        margin-bottom: 10px;
+        font-size: 0.95em;
+      }
+      .choices {
+        padding: 6px 4px 4px 4px;
+        margin-bottom: 10px;
+      }
+      label, .choices label {
+        font-size: 1em;
+      }
+      input[type="text"] {
+        font-size: 1em;
+        padding: 6px;
+      }
+      button[type="submit"] {
+        font-size: 1em;
+        padding: 8px 12px;
+      }
+      .info strong:before {
+        font-size: 1em;
+        margin-right: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Quiz -  Cartões de venda</h2>
+    
+    <form method="POST" action="salvar.php">
+
+        <label>Nome:</label>
+        <input type="text" name="nome" required />
+
+        
+      <!-- Question 1 -->
+      <div class="info">
+        <strong>Cartão de venda 1:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  Maria</li>
+          <li><b>Produto:</b> Maçã</li>
+          <li><b>Preço por quilo:</b> R$ 15,00</li>
+          <li><b>Peso comprado:</b> 1,25 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO MARIA PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA1" name="q1" value="A" required>
+            <label for="altA1">A) R$ 17,80</label><br />
+            <input type="radio" id="altB1" name="q1" value="B">
+            <label for="altB1">B) R$ 18,75</label><br />
+            <input type="radio" id="altC1" name="q1" value="C">
+            <label for="altC1">C) R$ 18,50</label>
+        </div>
+
+
+      </div>
+    
+
+
+
+
+      <!-- Question 2 -->
+      <div class="info">
+        <strong>Cartão de venda 2:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  João</li>
+          <li><b>Produto:</b> Banana</li>
+          <li><b>Preço por quilo:</b> R$ 5,00</li>
+          <li><b>Peso comprado:</b> 2,75 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO JOÃO PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA2" name="q2" value="A" required>
+            <label for="altA2">A) R$ 13,00</label><br />
+            <input type="radio" id="altB2" name="q2" value="B">
+            <label for="altB2">B) R$ 13,85</label><br />
+            <input type="radio" id="altC2" name="q2" value="C">
+            <label for="altC2">C) R$ 13,75</label>
+        </div>
+
+
+      </div>
+    
+
+
+
+
+      <!-- Question 3 -->
+      <div class="info">
+        <strong>Cartão de venda 3:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  Ísis</li>
+          <li><b>Produto:</b> Banana</li>
+          <li><b>Preço por quilo:</b> R$ 5,00</li>
+          <li><b>Peso comprado:</b> 1,2 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO ÍSIS PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA3" name="q3" value="A" required>
+            <label for="altA3">A) R$ 6,00</label><br />
+            <input type="radio" id="altB3" name="q3" value="B">
+            <label for="altB3">B) R$ 5,50</label><br />
+            <input type="radio" id="altC3" name="q3" value="C">
+            <label for="altC3">C) R$ 6,20</label>
+        </div>
+
+
+      </div>
+
+
+
+      <!-- Question 4 -->
+      <div class="info">
+        <strong>Cartão de venda 4:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  Maya</li>
+          <li><b>Produto:</b> Maçã</li>
+          <li><b>Preço por quilo:</b> R$ 15,00</li>
+          <li><b>Peso comprado:</b> 1,5 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO MAYA PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA4" name="q4" value="A" required>
+            <label for="altA4">A) R$ 21,50</label><br />
+            <input type="radio" id="altB4" name="q4" value="B">
+            <label for="altB4">B) R$ 22,00</label><br />
+            <input type="radio" id="altC4" name="q4" value="C">
+            <label for="altC4">C) R$ 22,50</label>
+        </div>
+
+
+      </div>
+
+
+
+
+      <!-- Question 5 -->
+      <div class="info">
+        <strong>Cartão de venda 5:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  Lucca</li>
+          <li><b>Produto:</b> Laranja</li>
+          <li><b>Preço por quilo:</b> R$ 4,00</li>
+          <li><b>Peso comprado:</b> 3,5 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO LUCCA PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA5" name="q5" value="A" required>
+            <label for="altA5">A) R$ 13,00</label><br />
+            <input type="radio" id="altB5" name="q5" value="B">
+            <label for="altB5">B) R$ 14,00</label><br />
+            <input type="radio" id="altC5" name="q5" value="C">
+            <label for="altC5">C) R$ 15,00</label>
+        </div>
+
+
+      </div>
+    
+
+
+
+
+      <!-- Question 6 -->
+      <div class="info">
+        <strong>Cartão de venda 6:</strong><br />
+        <ul>
+          <li><b>Cliente:</b>  Lara</li>
+          <li><b>Produto:</b> Laranja</li>
+          <li><b>Preço por quilo:</b> R$ 6,00</li>
+          <li><b>Peso comprado:</b> 2,3 kg</li>
+        </ul>
+
+        <br>
+        <b>QUANTO LARA PAGARÁ PELA COMPRA?</b>
+        <br>
+        <br>
+
+        <div class="choices">
+            <label><b>Alternativas:</b></label><br /><br>
+            <input type="radio" id="altA6" name="q6" value="A" required>
+            <label for="altA6">A) R$ 13,80</label><br />
+            <input type="radio" id="altB6" name="q6" value="B">
+            <label for="altB6">B) R$ 12,90</label><br />
+            <input type="radio" id="altC6" name="q6" value="C">
+            <label for="altC6">C) R$ 14,30</label>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
