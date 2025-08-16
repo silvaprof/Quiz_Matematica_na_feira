@@ -28,8 +28,8 @@ Saldo no cartão: R$20,00
 (C)	R$ 18,25
 
 
-![Quiz](images/quiz.png)
-![Ranking](images/ranking.png)
+![Quiz](images/quiz.jpg)
+![Ranking](images/ranking.jpg)
 
 
 ## Descrição técninca
